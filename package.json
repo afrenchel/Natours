@@ -1,0 +1,22 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Landing Page for Natours",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afrenchel/Natours.git"
+  },
+  "author": "Alina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afrenchel/Natours/issues"
+  },
+  "homepage": "https://github.com/afrenchel/Natours#readme",
+  "devDependencies": {
+    "node-sass": "^7.0.3"
+  }
+}

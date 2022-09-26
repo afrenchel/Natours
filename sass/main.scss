@@ -37,9 +37,9 @@ body {
 
     background-image: linear-gradient(
         to right bottom,
-        rgba($color-primary-light,.8),
-        rgba($color-primary-dark,.8)),
-    url(/img/hero-small.jpg);
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)),
+    url(img/hero.jpg);
 
     background-size: cover;
     background-position: top;
@@ -167,7 +167,7 @@ Transition se pune unde avem starea initiala de link si visited */
     &:hover {
 
       transform: translateY(-3px);
-      box-shadow: 0 1rem 2rem rgba($color-black 0.2);
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
       &::after {
         transform: scaleX(1.4) scaleY(1.6);
@@ -179,7 +179,7 @@ Transition se pune unde avem starea initiala de link si visited */
     &:active {
 
       transform: translateY(-1px);
-      box-shadow: 0 .5rem 1rem rgba($color-black 0.2);
+      box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
     }
 
     &--white {

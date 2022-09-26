@@ -1,11 +1,3 @@
-/* 
-COLORS:
-
-Lightgreen: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
 /* Base settings*/
 *,
 *::after,
@@ -30,7 +22,7 @@ body {
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(/img/hero-small.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(img/hero.jpg);
   background-size: cover;
   background-position: top;
   position: relative;
@@ -38,15 +30,20 @@ body {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
           clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
-
 .header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
-
 .header__logo {
   height: 3.5rem;
+}
+.header__text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
@@ -56,7 +53,6 @@ body {
           backface-visibility: hidden;
   margin-bottom: 6rem;
 }
-
 .heading-primary--main {
   display: block;
   font-size: 6rem;
@@ -68,21 +64,7 @@ body {
           animation-duration: 3s;
   -webkit-animation-timing-function: ease-out;
           animation-timing-function: ease-out;
-  /* Proprietati la animatii
-  animation-delay: 3s; (intarziere pana apare)
-  animation-iteration-count: 2; (de cate ori sa se repete)
-  animation-timing-function: ease-in, ease-out, etc. 
-
-  Se pot prescurta toate proprietatile:
-  gen: animation: moveInright 3s ease-out; cum am facut la primary-sub
-  back-face visibility: hidden ca sa nu mai avevm efectu ala de shake 
-
-  Poti sa faci animatii si cand dai hover pe ceva, si poti folosi acelasi keyframe
-   pe care l-ai folosit deja este reutilizabil, de exemplu la logo putem adauga animatia
-    pe care am pus-o la primary-heading.
-  */
 }
-
 .heading-primary--sub {
   display: block;
   font-size: 2rem;
@@ -92,14 +74,19 @@ body {
           animation: moveInRight 3s ease-out;
 }
 
-.header__text-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+/* Proprietati la animatii
+animation-delay: 3s; (intarziere pana apare)
+animation-iteration-count: 2; (de cate ori sa se repete)
+animation-timing-function: ease-in, ease-out, etc. 
 
+Se pot prescurta toate proprietatile:
+gen: animation: moveInright 3s ease-out; cum am facut la primary-sub
+back-face visibility: hidden ca sa nu mai avevm efectu ala de shake 
+
+Poti sa faci animatii si cand dai hover pe ceva, si poti folosi acelasi keyframe
+ pe care l-ai folosit deja este reutilizabil, de exemplu la logo putem adauga animatia
+  pe care am pus-o la primary-heading.
+*/
 /*Ca sa functioneze adaugi animatio: nameoftheanimation si animation-duration la elementul pe care il animezi*/
 @-webkit-keyframes moveInLeft {
   0% {
@@ -175,8 +162,10 @@ body {
 }
 /*Part 1 animate the button- cum sa arate in diferite stari, adaugam umbra si blur;
 Transition se pune unde avem starea initiala de link si visited */
-.btn:link,
-.btn:visited {
+.btn {
+  /* Folosim pseudo-elemente pentru a obtine niste efecte*/
+}
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -186,23 +175,26 @@ Transition se pune unde avem starea initiala de link si visited */
   position: relative;
   font-size: 1.6rem;
 }
-
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
-
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
 .btn:active {
   transform: translateY(-1px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
-
 .btn--white {
   background-color: white;
   color: #777;
 }
-
-/* Folosim pseudo-elemente pentru a obtine niste efecte*/
+.btn--white::after {
+  background-color: #fff;
+  position: absolute;
+}
 .btn::after {
   content: "";
   display: inline-block;
@@ -214,17 +206,6 @@ Transition se pune unde avem starea initiala de link si visited */
   z-index: -1;
   transition: all 0.4s;
 }
-
-.btn--white::after {
-  background-color: #fff;
-  position: absolute;
-}
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-
 .btn--animated {
   -webkit-animation: moveInBottom 0.5s ease-out 0.75s;
           animation: moveInBottom 0.5s ease-out 0.75s;
