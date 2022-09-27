@@ -1,0 +1,48 @@
+
+/* Proprietati la animatii
+animation-delay: 3s; (intarziere pana apare)
+animation-iteration-count: 2; (de cate ori sa se repete)
+animation-timing-function: ease-in, ease-out, etc. 
+
+Se pot prescurta toate proprietatile:
+gen: animation: moveInright 3s ease-out; cum am facut la primary-sub
+back-face visibility: hidden ca sa nu mai avevm efectu ala de shake 
+
+Poti sa faci animatii si cand dai hover pe ceva, si poti folosi acelasi keyframe
+ pe care l-ai folosit deja este reutilizabil, de exemplu la logo putem adauga animatia
+  pe care am pus-o la primary-heading.
+*/
+/*Ca sa functioneze adaugi animatio: nameoftheanimation si animation-duration la elementul pe care il animezi*/
+
+@keyframes moveInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-10rem); }
+    80% {
+      transform: translateX(1rem); }
+    100% {
+      opacity: 1;
+      transform: translate(0); } }
+
+      @keyframes moveInRight {
+        0% {
+          opacity: 0;
+          transform: translateX(10rem); }
+        80% {
+          transform: translateX(-1rem); }
+        100% {
+          opacity: 1;
+          transform: translate(0); } }
+
+
+          @keyframes moveInBottom {
+            0% {
+              opacity: 0;
+              transform: translateY(3rem); }
+            
+            100% {
+              opacity: 1;
+              transform: translate(0); } }
+
+/*Part 1 animate the button- cum sa arate in diferite stari, adaugam umbra si blur;
+Transition se pune unde avem starea initiala de link si visited */
