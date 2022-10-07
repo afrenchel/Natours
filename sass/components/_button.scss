@@ -1,6 +1,6 @@
 
 .btn {
-
+    &,
     &:link,
     &:visited {
       text-transform: uppercase;
@@ -43,6 +43,16 @@
       }
       
     }
+
+    &--green {
+      background-color: $color-primary;
+      color: $color-white;
+  
+
+      &::after {
+          background-color: $color-primary;
+      }
+  }
 
     /* Folosim pseudo-elemente pentru a obtine niste efecte*/
 
