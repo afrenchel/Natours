@@ -9,7 +9,13 @@
     font-size: $default-font-size;
     transform: skewX(-12deg);
 
-    
+    @include respond(tab-port){
+        width: 100%;
+        padding: 4rem;
+    padding-left: 7rem;
+    }
+
+   
 
     &__shape{
         width: 15rem;
@@ -20,6 +26,10 @@
         transform: translatex(-3rem) skewX(12deg);
         position: relative;
         
+        @include respond(phone){
+            transform:  translate(-3rem) skew(0);
+     
+         }
 
         //shape-outside works if element is floated and has defined dimensions//
 
@@ -34,6 +44,11 @@
 
     &__text {
         transform: skewX(12deg);
+
+        @include respond(phone){
+            transform: skew(0);
+     
+         }
     }
 
     &__caption {
